@@ -2,67 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A vanilla JavaScript memory game. Match six pairs, track your moves and time, and beat your personal best.">
 
   <title>Memory Game</title>
 
+  <link rel="icon" href="img/js-badge.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <section class="memory-game">
-    <div class="memory-card" data-framework="aurelia">
-      <img class="front-face" src="../img/aurelia.svg" alt="Aurelia" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
+  <main>
+    <header>
+      <h1>Memory Game</h1>
+      <p>Twelve cards. Six pairs. How many can you remember?</p>
+    </header>
+    <noscript><p>Enable JavaScript to play this game.</p></noscript>
+    <div class="toolbar">
+      <dl class="stats" aria-label="Game progress">
+        <div><dt>Moves</dt><dd id="moves">0</dd></div>
+        <div><dt>Time</dt><dd id="time">0:00</dd></div>
+        <div><dt>Pairs</dt><dd id="pairs">0 / 6</dd></div>
+      </dl>
+      <button id="restart" type="button">New game</button>
     </div>
-    <div class="memory-card" data-framework="aurelia">
-      <img class="front-face" src="../img/aurelia.svg" alt="Aurelia" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
+  <section class="memory-game" aria-label="Memory cards">
+    <button type="button" class="memory-card" data-framework="aurelia" aria-pressed="false">
+      <img class="front-face" src="img/aurelia.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
+    <button type="button" class="memory-card" data-framework="aurelia" aria-pressed="false">
+      <img class="front-face" src="img/aurelia.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
 
-    <div class="memory-card" data-framework="vue">
-      <img class="front-face" src="../img/vue.svg" alt="Vue" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="vue">
-      <img class="front-face" src="../img/vue.svg" alt="Vue" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
+    <button type="button" class="memory-card" data-framework="vue" aria-pressed="false">
+      <img class="front-face" src="img/vue.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
+    <button type="button" class="memory-card" data-framework="vue" aria-pressed="false">
+      <img class="front-face" src="img/vue.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
 
-    <div class="memory-card" data-framework="angular">
-      <img class="front-face" src="../img/angular.svg" alt="Angular" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="angular">
-      <img class="front-face" src="../img/angular.svg" alt="Angular" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
+    <button type="button" class="memory-card" data-framework="angular" aria-pressed="false">
+      <img class="front-face" src="img/angular.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
+    <button type="button" class="memory-card" data-framework="angular" aria-pressed="false">
+      <img class="front-face" src="img/angular.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
 
-    <div class="memory-card" data-framework="ember">
-      <img class="front-face" src="../img/ember.svg" alt="Ember" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="ember">
-      <img class="front-face" src="../img/ember.svg" alt="Ember" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
+    <button type="button" class="memory-card" data-framework="ember" aria-pressed="false">
+      <img class="front-face" src="img/ember.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
+    <button type="button" class="memory-card" data-framework="ember" aria-pressed="false">
+      <img class="front-face" src="img/ember.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
 
-    <div class="memory-card" data-framework="backbone">
-      <img class="front-face" src="../img/backbone.svg" alt="Backbone" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="backbone">
-      <img class="front-face" src="../img/backbone.svg" alt="Backbone" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
+    <button type="button" class="memory-card" data-framework="backbone" aria-pressed="false">
+      <img class="front-face" src="img/backbone.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
+    <button type="button" class="memory-card" data-framework="backbone" aria-pressed="false">
+      <img class="front-face" src="img/backbone.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
 
-    <div class="memory-card" data-framework="react">
-      <img class="front-face" src="../img/react.svg" alt="React" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="react">
-      <img class="front-face" src="../img/react.svg" alt="React" />
-      <img class="back-face" src="../img/js-badge.svg" alt="JS Badge" />
-    </div>
+    <button type="button" class="memory-card" data-framework="react" aria-pressed="false">
+      <img class="front-face" src="img/react-logo.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
+    <button type="button" class="memory-card" data-framework="react" aria-pressed="false">
+      <img class="front-face" src="img/react-logo.svg" alt="" aria-hidden="true" />
+      <img class="back-face" src="img/js-badge.svg" alt="" aria-hidden="true" />
+    </button>
   </section>
+    <p id="status" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p class="best-score">Personal best: <span id="best">No completed game yet</span></p>
+    <footer>Built with HTML, CSS and JavaScript. <a href="https://github.com/stefisha/memory-game">View source</a></footer>
+  </main>
 
   <script src="scripts.js"></script>
 </body>
