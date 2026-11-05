@@ -59,6 +59,10 @@ npm test
 
 Seven tests exercise deck integrity and asset paths, duplicate clicks, mismatch locking, restarting during a pending flip, completion, timer handling, personal-best comparisons and unavailable or corrupt browser storage. CI runs the checks on Node.js 22 and 24 and checks dependencies for known vulnerabilities.
 
+## Project context
+
+Completed as part of a JavaScript developer internship at [Levi9](https://github.com/Levi9).
+
 ## Credits
 
 This learning project follows [Marina Ferreira's Memory Game tutorial](https://marina-ferreira.github.io/tutorials/js/memory-game/), including the original framework card artwork and blue flip-card design. Framework names and logos belong to their respective owners.
